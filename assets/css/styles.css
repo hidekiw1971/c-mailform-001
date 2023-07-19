@@ -154,6 +154,39 @@ a {
 	text-decoration: none;
 }
 
+body h1 {
+	text-align: center;
+}
+
+#formWrap {
+	color: #555;
+	font-size: 90%;
+	line-height: 120%;
+	margin: 0 auto;
+	width: 700px;
+}
+
+table.formTable {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 100%;
+}
+
+table.formTable td,
+table.formTable th {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+table.formTable th {
+	background: #efefef;
+	font-weight: normal;
+	text-align: left;
+	width: 30%;
+}
+
+/*　簡易版レスポンシブ用CSS（必要最低限のみとしています。ブレークポイントも含め自由に設定下さい）　*/
+
 @media screen and (min-width: 768px) {
 
 .u-desktop {
@@ -182,6 +215,42 @@ a:hover {
 
 html {
 	font-size: 16px;
+}
+
+}
+
+@media screen and (max-width: 572px) {
+
+#formWrap {
+	margin: 0 auto;
+	width: 95%;
+}
+
+table.formTable th,
+table.formTable td {
+	display: block;
+	width: auto;
+}
+
+table.formTable th {
+	border-bottom: 0;
+	margin-top: 5px;
+}
+
+form input[type=text],
+form textarea {
+	display: block;
+	font-size: 110%;
+	padding: 5px;
+	width: 80%;
+}
+
+form input[type=submit],
+form input[type=reset],
+form input[type=button] {
+	display: block;
+	height: 40px;
+	width: 100%;
 }
 
 }
