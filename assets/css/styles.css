@@ -150,19 +150,8 @@ select::-ms-expand {
 	display: none;
 }
 
-.inner {
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 20px;
-	padding-right: 20px;
-	width: 100%;
-}
-
-.test {
-	background-color: red;
-	color: #fff;
-	font-size: 20px;
-	font-size: 1.25rem;
+a {
+	text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -185,12 +174,6 @@ a[href^="tel:"] {
 
 a:hover {
 	opacity: 0.8;
-}
-
-.inner {
-	max-width: 1150px;
-	padding-left: 25px;
-	padding-right: 25px;
 }
 
 }
