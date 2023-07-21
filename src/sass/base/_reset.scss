@@ -57,7 +57,7 @@ img {
 }
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
+article>*+* {
   margin-top: 1em;
 }
 
@@ -76,10 +76,10 @@ img:not([alt]) {
 
 
 /* フォームリセット */
-input,
-button,
-select,
-textarea {
+// input,
+// button,
+select {
+  // textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -94,10 +94,10 @@ textarea {
   resize: vertical;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  display: none;
-}
+// input[type="checkbox"],
+// input[type="radio"] {
+//   display: none;
+// }
 
 input[type="submit"],
 input[type="button"],

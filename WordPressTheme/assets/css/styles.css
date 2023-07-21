@@ -115,10 +115,7 @@ img:not([alt]) {
 
 /* フォームリセット */
 
-input,
-button,
-select,
-textarea {
+select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -131,11 +128,6 @@ textarea {
 
 textarea {
 	resize: vertical;
-}
-
-input[type=checkbox],
-input[type=radio] {
-	display: none;
 }
 
 input[type=submit],
@@ -155,6 +147,10 @@ a {
 }
 
 body h1 {
+	text-align: center;
+}
+
+footer {
 	text-align: center;
 }
 
