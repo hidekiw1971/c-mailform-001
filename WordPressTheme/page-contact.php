@@ -77,10 +77,11 @@ $confirmDsp = 1; // ★要チェック（1にすると送信できない）
 // 送信完了後に自動的に指定のページ(サンクスページなど)に移動する(する=1, しない=0)
 // CV率を解析したい場合などはサンクスページを別途用意し、URLをこの下の項目で指定してください。
 // 0にすると、デフォルトの送信完了画面が表示されます。
-$jumpPage = 0;
+$jumpPage = 1;
 
 // 送信完了後に表示するページURL（上記で1を設定した場合のみ）※httpから始まるURLで指定ください。（相対パスでも基本的には問題ないです）
-$thanksPage = "http://xxx.xxxxxxxxx/thanks.html";
+$thanksPage = get_permalink(8);
+echo $thanksPage;
 
 // 必須入力項目を設定する(する=1, しない=0)
 $requireCheck = 1;
@@ -258,11 +259,15 @@ if (($confirmDsp == 0 || $sendmail == 1) && $empty_flag != 1) {
 	<div id="formWrap">
 		<?php if ($empty_flag == 1) { ?>
 			<div align="center">
-				<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。</h4>
+				<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します＃＃</h4>
 				<?php echo $errm; ?><br /><br /><input type="button" value=" 前画面に戻る " onClick="history.back()">
 			</div>
+			<?php echo "jumpPage：" . $jumpPage; ?>
+			<?php echo "sendmail：" . $sendmail; ?>
+			<?php echo "confirmDsp：" . $confirmDsp; ?>
+
 		<?php } else { ?>
-			<h3>確認画面</h3>
+			<h3>確認画面！</h3>
 			<p align="center">以下の内容で間違いがなければ、「送信する」ボタンを押してください。</p>
 			<form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
 				<table class="formTable">
@@ -275,6 +280,9 @@ if (($confirmDsp == 0 || $sendmail == 1) && $empty_flag != 1) {
 					<input type="button" value="前画面に戻る" onClick="history.back()">
 				</p>
 			</form>
+			<?php echo "jumpPage：" . $jumpPage; ?>
+			<?php echo "sendmail：" . $sendmail; ?>
+			<?php echo "confirmDsp：" . $confirmDsp; ?>
 		<?php } ?>
 	</div><!-- /formWrap -->
 	<!-- ▲ *********** 送信内容確認部　※編集は自己責任で ************ ▲-->
@@ -303,7 +311,7 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 	<body>
 		<div align="center">
 			<?php if ($empty_flag == 1) { ?>
-				<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。</h4>
+				<h4>入力にエラーがあります。下記をご確認の上「戻る」ボタンにて修正をお願い致します。。</h4>
 				<div style="color:red"><?php echo $errm; ?></div>
 				<br /><br /><input type="button" value=" 前画面に戻る " onClick="history.back()">
 		</div>
@@ -311,15 +319,15 @@ if (($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &
 
 	</html>
 <?php } else { ?>
-	送信ありがとうございました。<br />
+	送信ありがとうございました！<br />
 	送信は正常に完了しました。<br /><br />
 	<a href="<?php echo $site_top; ?>">トップページへ戻る&raquo;</a>
 	</div>
 	<?php copyright(); ?>
 	<!--  CV率を計測する場合ここにAnalyticsコードを貼り付け -->
 	</body>
+	<!-- </html> -->
 
-	</html>
 <?php
 				/* ▲▲▲送信完了画面のレイアウト 編集可 ※送信完了後に指定のページに移動しない場合のみ表示▲▲▲　*/
 			}
